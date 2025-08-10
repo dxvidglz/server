@@ -22,6 +22,7 @@ app.use(express.json());
 const APP_ID = process.env.APP_ID;
 const APP_KEY = process.env.APP_KEY;
 const EDAMAM_ACCOUNT_USER = process.env.EDAMAM_ACCOUNT_USER;
+const HOST = process.env.HOST || 'http://localhost:3000';
 const API_BASE_URL = 'https://api.edamam.com/api/recipes/v2';
 
 // --- Ruta Principal de la API ---
@@ -140,6 +141,6 @@ app.get('/api/recipes', async (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`Servidor escuchando en http://localhost:${PORT}`);
-  console.log('Para probar, abre en tu navegador: http://localhost:3000/api/recipes?ingredients=pollo,arroz');
+  console.log(`Servidor escuchando en ${HOST}`);
+  console.log(`Para probar, abre en tu navegador: ${HOST}/api/recipes?ingredients=pollo,arroz`);
 });
